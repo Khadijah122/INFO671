@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+===============================
+PROGRAMMER Name: Wejdan Babatain
+Project Name: Assignment#6
+Date: 11/17/1016
+Purpose: Create a Pizza Form
+===============================
+-->
+<html>
+<head>
+<title>HTML and JavaScript</title>
+<script>
+
+
+                   
+                    
+
+// whb   when user press on "Submit Order" button, all entered data must be checked before printing the order details
+function doSubmit(){
+
+// whb   check that each textbox must have data
+if (validateText() == false)
+{
+return;
+ }
+
+// whb   check if the Phone Number is empty or in wrong format 
+if (validatePhone() == false)
+ {
+// whb    print an alert message to the user with the possible phone formate example
+ alert ( "Empty Phone Number or Wrong Format"+ "\n" +"The Phone Number should be in one of these format:"
+         +"\n"+ "1. dddddddddd"   +"\n"+  "2. ddd-ddd-dddd"  +"\n"+ "3. (ddd)ddddddd"  +"\n"+  "4. (ddd)ddd-dddd" );
+return;
+ }
+ 
+// whb   check that the email field must have data that contains a single “@” not in the first and last positions, and have "."  in the 4th from last or 3rd from last positions
+if (validateEmail() == false)
+{
+// whb    print an alert message to the user with the correct email formate example
+ alert ( "Empty or Invalid email address." + "\n" +  "The email address should be in the form of username@example.com" );
+return;
+ } 
+                    
+// whb    print an alert message to the user with the whole order details 
+ window.alert("Your pizza order has been submitted :) ");
+ 
+return;
+}
+
+
+//-------------Validation Part -------------------------------
+
+// whb   Valideate each textbox if it contains data or not 
+function validateText(){
+// whb   check the name felid and send an alert message if it is empty
+var customer = document.PizzaForm.customer.value;
+if (customer.length == 0) 
+   {
+     alert("Name data is missing");
+     return false;
+   }
+
+// whb   check the address felid and send an alert message if it is empty
+var address = document.PizzaForm.address.value;
+if (address.length == 0) 
+  {
+     alert("Address data is missing");
+     return false;
+   }
+   
+
+// whb   check the city felid and send an alert message if it is empty
+var city = document.PizzaForm.city.value;
+if (city.length == 0) 
+  {
+     alert("City data is missing");
+     return false;
+   }
+   
+// whb   check the state felid and send an alert message if it is empty   
+var state = document.PizzaForm.state.value;
+if (state.length == 0) 
+  {
+     alert("State data is missing");
+     return false;
+   }
+   
+// whb   check the zip felid and send an alert message if it is empty   
+var zip = document.PizzaForm.zip.value;
+if (zip.length !=5) 
+  {
+     alert("The Zip code should contain exactly 5 digits");
+     return false;
+   }
+
+}
+
+
+
+// whb   Create this function to Validate the phone field 
+function validatePhone() {
+    var phone = document.PizzaForm.phone.value; // whb   defined a new var to store the entered value in the phone field
+    var openParenthesis = 0; // whb   defined a new var to store the no. of  '(' in the phone string 
+    var closeParenthesis = 0; // whb   defined a new var to store the no. of  ')' in the phone string 
+    var dashesNo = 0; // whb   defined a new var to store the no. of  '-' in the phone string 
+    
+    if(phone.length == 0)
+      {
+        return false; // whb    if there is no value entered, the validatePhone alert message in the doSubmit() will be appeared 
+      }
+            else
+            {
+                if(phone.length < 10) 
+                {
+                   return false; // whb    if the entered value  is less than 10 digits, the validatePhone alert message in the doSubmit() will be appeared 
+                }
+                else if (phone.length >= 10 ) // whb    if the entered value  is equal to or great than 10 digits,the '(', ')', '-' must be checked 
+                {
+                  
+                    for(i=0 ; i< phone.length ; i++)// whb   create this for loop to count the number of ')', '(' , '-'
+                    {
+                        if(phone.charAt(i) == "(")
+                        {
+                            openParenthesis++ ;
+                        }
+                        if(phone.charAt(i) == ")")
+                        {
+                            closeParenthesis++ ;
+                        }
+                        if(phone.charAt(i) == "-")
+                        {
+                          dashesNo++ ;
+                        } 
+                    } 
+                    // whb   check if the number of  '(', ')', '-' is more than the required or their appearance where in the wrong positions, the validatePhone alert message in the doSubmit() will be appeared 
+                      if((dashesNo >2 || (dashesNo >=2 && openParenthesis==1 && openParenthesis==1)) || 
+                      ( (openParenthesis == 0 && closeParenthesis == 1) || (openParenthesis == 1 && closeParenthesis == 0) || openParenthesis > 1 || closeParenthesis > 1)){
+                        return false;
+                  }
+                    
+                    // whb   check if the phone is in one of these format ddd-ddd-dddd or dddddddddd or (ddd)ddddddd or (ddd)ddd-dddd 
+                    else if ((phone.charAt(3)=="-" && phone.charAt(7)=="-") ||(dashesNo == 0 && openParenthesis == 0 && closeParenthesis == 0 && phone.length == 10)
+                          || (phone.charAt(0)=="(" && phone.charAt(4)==")" && dashesNo == 0)
+                          || (phone.charAt(0)=="(" && phone.charAt(4)==")" && phone.charAt(8)=="-"))
+                      {
+                      } 
+                   
+                   else {
+                          return false ; // if the entered phone data was not of the pre formats, the validatePhone alert message in the doSubmit() will be appeared 
+                        }   
+                }
+                
+             }
+                    
+    }
+
+
+          
+// whb   Create this function to Validate the email field       
+function validateEmail(){
+       
+          var email = document.PizzaForm.email.value;
+          if((email.length == 0)|| (email.charAt(email.length-1) == "@") ||
+           (email.charAt(email.length-1) == ".") || (email.charAt(0) == "@") || (email.charAt(0) == ".") || 
+           (email.indexOf('@') === -1 ) || (email.indexOf('.') === -1 ) || (email.charAt(email.length-4) != ".")
+           && (email.charAt(email.length-3) != "."))
+        
+           return false; // whb    if the email is empty or not in this format username@example.com, the validateEmail alert message in the doSubmit() will be appeared  
+               }     
+  
+//--------------------------------------------------------------------------------------
+</script>
+
+
+</head>
+<body>
+<!-- whb  create a form and give it a name -->
+<form name="PizzaForm">
+ <h1>The JavaScript Pizza Parlor</h1>
+<p>
+ <h4>Step 1: Enter your name, address, and phone number:</h4>
+<!-- whb  Change the font to  "Courier New" -->
+<font face="Courier New">
+
+<!-- whb  create 6 labeled text fields. Each text field is an input control that allows the user to enter a string value into a specific location on the Web page -->
+Name: &nbsp;&nbsp;&nbsp;<input name="customer" size="50" type="text"><br>
+Address: <input name="address" size="50" type="text"><br>
+City: &nbsp;&nbsp;&nbsp;<input name="city" size="15" type="text">
+State: <select name="state"> <!-- whb  create a drop-down list to list the States -->
+           <option value="PA">PA</option>
+           <option value="NJ">NJ</option>
+           <option value="NY">NY</option>
+           <option value="DE">DE</option>
+       </select>
+
+
+Zip: <input name="zip" size="5" type="text"><br>
+Phone: &nbsp;&nbsp;<input name="phone" size="50" type="text"><br>
+Email: &nbsp;&nbsp;<input name="email" size="50" type="text" ><br>
+ </font>
+ </p>
+
+<!-- whb   create button labeled with "Submit Order" and when the usere click on that button doSubmit() function sholud work -->
+<input type="button" value="Submit Order" onClick="doSubmit()">
+
+</form>
+</body>
+</html>
+
+
