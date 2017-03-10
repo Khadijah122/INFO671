@@ -10,45 +10,32 @@
 
 <body>
 
-
-
 <?php
-   $dbhost = 'localhost';
-   $dbuser = 'root';
-   $dbpass = '';
-   
-   $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-   
-   if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
-   }
-   
-$User_ID=2;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "User_info";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+$User_ID= 7;
+$User_Name= "X6";
+$User_Email= "k8666@drexel.edu";
+$Book_title= "Gooo";
+$sql = "INSERT INTO Users (User_ID, User_Name, User_Email,Book_title)
+VALUES ('$User_ID', '$User_Name', '$User_Email','$Book_title')";
 
-$sql = "Select * From Users WHERE User_ID='$User_ID'";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
-   mysql_select_db('User_info');
-   $retval = mysql_query( $sql, $conn );
-   
-   if(! $retval ) {
-      die('Could not get data: ' . mysql_error());
-   }
-   
-   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
-      echo " ID :{$row['User_ID']}  <br> ".
-         " NAME : {$row['User_Name']} <br> ".
-         " Email : {$row['User_Email']} <br> ".
-         "--------------------------------<br>";
-   }
-   
-   echo "Fetched data successfully\n";
-   
-   mysql_close($conn);
+$conn->close();
 ?>
-
-
-
-</body>
-
+ </body>
 </html>
