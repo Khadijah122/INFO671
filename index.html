@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Library Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+            background: url("images/image1") repeat;
+            color : #a52a2a;
+            width : 100%;
+            font : 85% "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+            }
+
+            #container {
+            width : 100%;
+            margin : 0 auto;
+            padding : 5px;
+            background: #E4DCB2;
+            color : #333;
+            line-height : 1.5em;
+            }
+
+            #top {
+            margin:0;
+            padding : 0;
+            color:#333;
+            background : #404040 url(images/image1.jpg);
+            background-size: 100% 180px;
+            background-repeat: no-repeat;
+            border-bottom : 0px solid #fff;
+            height:150px;
+            width: 100%;
+            }
+
+            h2 {
+            margin : 0;
+            padding : 20px 0 5px 5px;
+            font : 150%  Helvetica, "Trebuchet MS", Arial,Tahoma, sans-serif;
+            letter-spacing:4px;
+            border-bottom: 1px solid #656C4A;
+            color:#656C4A;
+            background:inherit;
+            }
+            h3 {
+            margin : 0;
+            padding : 20px 0 5px 10px;
+            font : 100%  "Comic Sans MS", cursive, sans-serif;
+            color:#800000;
+            background:inherit;
+            }
+
+            #content {
+            margin :10px 0 0 10px;
+            padding : 10px;
+            }
+
+            .wrap {
+            width: 100%;
+            }
+            p {
+            font-size: 20px; 
+            font-family: fantasy
+            }
+        </style>      
+    </head>
+    <body>
+        
+        <div id="container">
+            <div id="top">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h2>Library Index</h2>
+            </div>
+	
+            <div id="content">
+                <h2>Welcome to Homepage!</h2>
+
+            <div class="wrap">
+                <h3>Submitted by: Team 2</h3>
+                <br/>
+                <br/>
+                <p>Search for book by Title or Age</p>
+            </div>
+            </div> 
+
+            <script type="text/javascript">
+                function validationForm() {
+                if (document.myForm.x.value==0)
+				{
+                    alert("ALERT: Input field cannot be empty!");
+                    return false;
+				}
+				if(document.myForm.y.value==0)
+				{
+                    alert("ALERT: Input field cannot be empty!");
+                    return false;
+				}
+            }
+            </script> 
+        
+            <form name="myForm" action="booksearch.php" onsubmit="return validationForm()" method="post">
+                Search by Title: <input type="text" name="x" ><input type="submit" value="Search" >
+				<br/>
+              	<br/>
+
+				Search by Age:&nbsp <input type="text" name="y"> <input type="submit" value="Search">
+				
+            </form>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			
+			<form name="viewForm" action="view.php" method="post">
+				<input type="button" value="List of Borrowed Books">
+				
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>        
+    </body>
+</html>
