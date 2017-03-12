@@ -47,16 +47,16 @@ and open the template in the editor.
 
                 return !hasError;
             }
-            document.getElementById('test').onsubmit = ValidateForm;
+            document.getElementById('test').onsubmit = "return ValidateForm()";
         </script>
 
-        <form id='test'>
+        <form id='test' onSubmit="return ValidateForm()">
             Full_Name *
-            <input id="lname" type="text"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
+            <input name="userName" id="lname" type="text"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
             Student_ID *
-            <input id="id" type="text" size="12"><span id="wrongid" class="error">*This is a required field</span> <br/><br/>
+            <input name="userID" id="id" type="text" size="12"><span id="wrongid" class="error">*This is a required field</span> <br/><br/>
             Email_ID *
-            <input id="email" type="text"><span id="wrongemail" class="error">* Wrong Email Address</span> <br/><br/>
+            <input name="userEmail" id="email" type="text"><span id="wrongemail" class="error">* Wrong Email Address</span> <br/><br/>
 
             <div>
                 <input type="submit" value="Submit">
