@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Library Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="webStyle.css">    
+    </head>
+    <body>
+
+        
+            <div id="top">
+                <br/>
+                <br/>
+                <br/>
+                <h2>Drexel Library Website </h2>
+            </div>
+
+            <div class="navbar">
+
+                <a href="home.html">Home</a>
+                <a href="view.php">Borrowed Book list</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+
+            </div>
+            <br/>
+
+     
+
+        <script type="text/javascript">
+            function validationForm() {
+                if (document.myForm.age.value == 0)
+                {
+                    alert(" Input field cannot be empty!");
+                    return false;
+                }
+            }
+        </script> 
+
+        <div class="wrap">
+            <h2>Welcome to Homepage!</h2>
+            <h3>Submitted by: Team 2</h3>
+            <br/>
+            <br/>
+            <p>Search for book by Title or Age</p>
+
+
+
+            <form name="myForm" action="booksearch.php" onsubmit="return validationForm()" method="post">
+                <!--  Search by Title: <input type="text" name="x" ><input type="submit" value="Search" > -->
+                <br/>
+                <br/>
+
+                Search by Age:&nbsp <input type="text" name="age"> <input type="submit" value="Search">
+                <!-- <input type="button"  onsubmit ="view.php" value="List of Borrowed Books">-->
+                <!-- <button type="button" onclick=>List of Borrowed Books</button> -->
+
+                <br/>
+                <br/>
+                <!-- <a href='view.php'>view </a> -->
+            </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+        </div>
+
+
+
+
+
+    </body>
+</html>
