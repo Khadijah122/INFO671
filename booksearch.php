@@ -18,7 +18,7 @@
 
             <div class="navbar">
 
-                <a href="index.html">Home</a>
+                <a href="home.html">Home</a>
                 <a href="view.php">Borrowed Book list</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
