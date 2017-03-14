@@ -18,7 +18,7 @@
 
             <div class="navbar">
 
-                <a href="home.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="view.php">Borrowed Book list</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
@@ -31,18 +31,23 @@
             <p>List of books available in the library:</p> 
 
             <?php
+            // Built by LucyBot. www.lucybot.com
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            $age = $_POST["age"];
+            $title = $_POST["title"];
             $query = array(
-                "api-key" => "dbf288a288f0459c98de7bcd6e07f7bf",
-                "age-group" => "$age"
+                "api-key" => "63ffe4d7d41c40649a2742c747a3c668",
+                "title" => "$title"
             );
-            curl_setopt($curl, CURLOPT_URL, "http://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json" . "?" . http_build_query($query)
+            curl_setopt($curl, CURLOPT_URL, "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json" . "?" . http_build_query($query)
             );
             $result = json_decode(curl_exec($curl));
-            //echo json_encode($result);
+
+
+
+
+
+            
             $books = $result->results;
             echo "<table>";
             echo "<h2> Total number of books are:" . $result->num_results . "</h2>";
@@ -51,13 +56,10 @@
             echo "<th>Author</th>";
             echo "<th>Add Book</th>";
             echo "</tr>";
-
             foreach ($books as $book) {
                 echo "<tr>";
                 echo "<td>" . $book->title . "</td>";
                 echo "<td>" . $book->author . "</td>";
-
-
                 echo "<td>" . "<a href=student_add.php?title=" . urlencode($book->title) . "> Add this book</a></td>";
                 echo "</tr>";
             }
