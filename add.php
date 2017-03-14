@@ -57,5 +57,6 @@ VALUES ('$User_ID', '$User_Name', '$User_Email','$Book_title')";
             }
             $conn->close();
             ?>
+         </div>
     </body>
 </html>
