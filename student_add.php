@@ -41,29 +41,36 @@ and open the template in the editor.
 
 
         <script>
+           
             function ValidateForm() {
+
                 var hasError = false;
+                //.search(/^[a-zA-Z]+$/)
                 if (document.getElementById('lname').value === "") {
                     document.getElementById('wronglname').style.display = "inline";
                     hasError = true;
                 } else {
-                    document.getElementById('wrongname').style.display = "none";
+                    document.getElementById('wronglname').style.display = "none";
                 }
-                if (document.getElementById('id').value.search(/^[0-9]+$/)) {
+
+                if (document.getElementById('id').value.search(/^[0-9]+$/)=== -1) {
                     document.getElementById('wrongid').style.display = "inline";
                     hasError = true;
                 } else {
                     document.getElementById('wrongid').style.display = "none";
                 }
+
                 if (document.getElementById('email').value.search(/^[a-zA-Z]+([_\.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,4})+$/) === -1) {
                     document.getElementById('wrongemail').style.display = "inline";
                     hasError = true;
                 } else {
                     document.getElementById('wrongemail').style.display = "none";
                 }
+
                 return !hasError;
             }
-            document.getElementById('test').onsubmit = ValidateForm;
+            document.getElementById('test').onsubmit = "return ValidateForm()";
+        
         </script>
 
         <div class="wrap">
@@ -75,7 +82,7 @@ and open the template in the editor.
             echo $title;
             ?>
 
-            <form id='test' action = "add.php" method = "post">
+            <form id='test' action = "add.php" method = "post" onSubmit="return ValidateForm()">
                 <input type  ="hidden" name="title" value="<?php echo $_GET['title'] ?>">
                 Full_Name *
                 <input name= "userName" id="lname" type="text"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
