@@ -9,15 +9,20 @@ and open the template in the editor.
 */
 
 body {
-    background-color:  #bdc2cc ;
+    /* background-color:  #bdc2cc ; */
     /*background: url("images/image1") repeat;*/
     /* color : #a52a2a; */
+    background: url(background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     width : 100%;
     font : 85% "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
 }
 
 #top {
-    
+
     background : #404040 url(banner.jpg);
     background-size: 100% 180px;
     height:220px;
@@ -43,6 +48,7 @@ h3 {
 
 
 .wrap {
+
     width: 100%;
     position: absolute;
     top: 270px;
@@ -56,6 +62,12 @@ p {
 table {
     border-collapse: collapse;
     width: 100%;
+    color:#fff;
+}
+
+th{
+    background: black;
+    
 }
 th, td {
     padding: 8px;
@@ -65,24 +77,90 @@ th, td {
 
 
 .navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: absolute;
-  top: 0;
-  width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 
-.navbar a:hover {
-    background-color: #111;
+tr:hover {
+    background-color: #110;
+}
+
+
+.inner-container{
+    width:1000px;
+    height:330px;
+    position:absolute;
+    top:calc(33vh - 200px);
+    left:calc(25vw - 200px);
+    overflow:hidden;
+    background:rgba(0,0,0,0.60);
+}
+
+
+
+.table-inner-container {
+    width:1000px;
+    height:500px;
+    position:absolute;
+    top:calc(33vh - 200px);
+    left:calc(25vw - 200px);
+    overflow:hidden;
+    background:rgba(0,0,0,0.60);
+}
+
+.book-table-inner-container {
+    width:1000px;
+    height:1000px;
+    position:absolute;
+    top:calc(33vh - 200px);
+    left:calc(25vw - 200px);
+    overflow:hidden;
+    background:rgba(0,0,0,0.60);
+}
+
+.box{
+    position:absolute;
+    height:100%;
+    width:100%;
+    font-family:Helvetica;
+    color:#fff;
+}
+.box h2{
+    text-align:center;
+    margin:30px 0;
+    font-size:30px;
+}
+.text{
+     position:absolute;
+    top:calc(47vh - 200px);
+    left:calc(37vw - 200px);
+    text-align:center;
+    margin:30px 0;
+    font-size:20px;
+}
+#test{
+    position:absolute;
+    top:calc(45vh - 200px);
+    left:calc(30vw - 200px);
+
+}
+#test2{
+    position:absolute;
+    top:calc(65vh - 200px);
+    left:calc(30vw - 200px);
+
 }
