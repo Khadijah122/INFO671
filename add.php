@@ -1,4 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+      <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
 
@@ -42,14 +43,18 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-
-
             $User_ID = $_POST["userID"];
             $User_Name = $_POST["userName"];
             $User_Email = $_POST["userEmail"];
-            $Book_title = $_POST['title'];
+            $Book_title = mysql_real_escape_string($_POST['title']);
+
+            
+            
             $sql = "INSERT INTO Users (User_ID, User_Name, User_Email,Book_title)
-VALUES ('$User_ID', '$User_Name', '$User_Email','$Book_title')";
+VALUES ('$User_ID', '$User_Name', '$User_Email','$Book_title')"
+            
+          ;
+          
             if ($conn->query($sql) === TRUE) {
                 echo "New record created successfully";
             } else {
