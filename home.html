@@ -14,25 +14,23 @@ and open the template in the editor.
     </head>
     <body>
 
-        
-            <div id="top">
-                <br/>
-                <br/>
-                <br/>
-                <h2>Drexel Library Website </h2>
-            </div>
 
-            <div class="navbar">
-
-                <a href="home.html">Home</a>
-                <a href="view.php">Borrowed Book list</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-
-            </div>
+        <div id="top">
             <br/>
+            <br/>
+            <br/>
+            <h2>Drexel Library Website </h2>
+        </div>
 
-     
+        <div class="navbar">
+
+            <a href="home.html">Home</a>
+            <a href="view.php">Borrowed Book list</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+
+        </div>
+        <br/>
 
         <script type="text/javascript">
             function validationForm() {
@@ -43,38 +41,42 @@ and open the template in the editor.
                 }
             }
         </script> 
+        <div class="formBackground">
 
-        <div class="wrap">
-            <h2>Welcome to Homepage!</h2>
-            <h3>Submitted by: Team 2</h3>
-            <br/>
-            <br/>
-            <p>Search for book by Title or Age</p>
+            <div class="wrap">
+
+                <div class="inner-container">
+
+                    <div class="box">
+                        <h2>Welcome to the Library Search Page!</h2>
 
 
+                        <form name= "myForm" id='test' action="booksearch_title.php" onsubmit="return validationForm()" method="post">
+                            <p>Search for book by Title or by Age</p>
 
-            <form name="myForm" action="booksearch.php" onsubmit="return validationForm()" method="post">
-                <!--  Search by Title: <input type="text" name="x" ><input type="submit" value="Search" > -->
-                <br/>
-                <br/>
+                            Search by Title:&nbsp <input type="text" name="title"> <input type="submit" value="Search">
+                            <br/>
+                        </form>
 
-                Search by Title:&nbsp <input type="text" name="title"> <input type="submit" value="Search">
-                <!-- <input type="button"  onsubmit ="view.php" value="List of Borrowed Books">-->
-                <!-- <button type="button" onclick=>List of Borrowed Books</button> -->
+                        <form name= "myForm" id='test2' action="booksearch.php" onsubmit="return validationForm()" method="post">
 
-                <br/>
-                <br/>
-                <!-- <a href='view.php'>view </a> -->
-            </form>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
 
+                            Search by Age:&nbsp <input type="text" name="Age"> <input type="submit" value="Search">
+                            <br/>
+                            <br/>
+
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-
-
 
 
     </body>
