@@ -14,25 +14,23 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="webStyle.css">    
     </head>
     <body>
-        <div id="container"> 
-            <div id="top">
-                <br/>
-                <br/>
-                <br/>
-                <h2>Drexel Library Website </h2>
-            </div>
 
-            <div class="navbar">
-
-                <a href="home.html">Home</a>
-                <a href="view.php">Borrowed Book list</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-
-            </div>
+        <div id="top">
             <br/>
+            <br/>
+            <br/>
+            <h2>Drexel Library Website </h2>
+        </div>
 
-        </div> 
+        <div class="navbar">
+
+            <a href="home.html">Home</a>
+            <a href="view.php">Borrowed Book list</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+
+        </div>
+        <br/>
 
 
 
@@ -41,7 +39,7 @@ and open the template in the editor.
 
 
         <script>
-           
+
             function ValidateForm() {
 
                 var hasError = false;
@@ -53,7 +51,12 @@ and open the template in the editor.
                     document.getElementById('wronglname').style.display = "none";
                 }
 
-                if (document.getElementById('id').value.search(/^[0-9]+$/)=== -1) {
+
+                    if (document.getElementById('id').value.length != 6) {
+                    document.getElementById('wrongid').style.display = "inline";
+                    hasError = true;
+   }
+               else if (document.getElementById('id').value.search(/^[0-9]+$/) === -1) {
                     document.getElementById('wrongid').style.display = "inline";
                     hasError = true;
                 } else {
@@ -70,35 +73,43 @@ and open the template in the editor.
                 return !hasError;
             }
             document.getElementById('test').onsubmit = "return ValidateForm()";
-        
+
         </script>
 
         <div class="wrap">
-            <h2>Please enter the student details here:</h2> 
-            Book Title:
-            <?php
-            $title = $_GET["title"];
+            <div class="inner-container">
 
-            echo $title;
-            ?>
+                <div class="box">
 
-            <form id='test' action = "add.php" method = "post" onSubmit="return ValidateForm()">
-                <input type  ="hidden" name="title" value="<?php echo $_GET['title'] ?>">
-                Full_Name *
-                <input name= "userName" id="lname" type="text"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
-                Student_ID *
-                <input name= "userID" id="id" type="text" size="12"><span id="wrongid" class="error">*This is a required field</span> <br/><br/>
-                Email_ID *
-                <input name= "userEmail" id="email" type="text"><span id="wrongemail" class="error">* Wrong Email Address</span> <br/><br/>
+                    <h2>Please enter the student details here:</h2> 
 
-                <div>
-                    <input type="submit" value="Submit">
+
+                    <form id='test' action = "add.php" method = "post" onSubmit="return ValidateForm()">
+                        Book Title:
+                        <?php
+                        $title = $_GET["title"];
+
+                        echo $title;
+                        ?> 
+                        <br/><br/>
+
+                        <input type  ="hidden" name="title" value="<?php echo $_GET['title'] ?>">
+                        Full_Name *
+                        &nbsp;<input name= "userName" id="lname" type="text"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
+                        Student_ID *
+                        <input name= "userID" id="id" type="text" size="6"><span id="wrongid" class="error">*This is a required field and should be 6 digits</span> <br/><br/>
+                        Email_ID *
+                        &nbsp; &nbsp;<input name= "userEmail" id="email" type="text"><span id="wrongemail" class="error">* Wrong Email Address</span> <br/><br/>
+
+                     
+                        <input type="submit" value="Next">
+
+
+                    </form>
+
+
                 </div>
-            </form>
-
-            <div><button type="button" onclick="home.html">Previous</button>
-                <button type="button" onclick="alert('code target here')">Next</button></div>
+            </div>
         </div>
-
     </body>
 </html>
