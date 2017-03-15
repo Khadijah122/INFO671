@@ -1,9 +1,0 @@
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (0930666,'Lora','Lora77@gmail.com','Harry Potter Paperback Box Set (Books 1-7)');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (0839666,'Lamar','Lamar7@gmail.com','HARRY, A HISTORY');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (0730866,'Henry','Henry8@gmail.com','CHASING HARRY WINSTON');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (0430556,'Mat','Mat887@yahoo.com','Harry & Hopper');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (8830666,'Omar','More@gmail.com','Hunger Game');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (54330666,'Neil','Neil12@hotmail.com','GirlBoos');
-INSERT INTO Users ('User_ID' , 'User_Name', 'User_Email', 'Book_title') VALUES (09656566,'Jaen','Jaenne@gmail.com','A moment in the sun');
-
- 
