@@ -70,7 +70,6 @@ and open the template in the editor.
             <h2>Please enter the student details here:</h2> 
             <?php
             $User_ID = $_GET['User_ID'];
-echo $User_ID;
 
             $servername = "localhost";
             $username = "root";
@@ -82,28 +81,30 @@ echo $User_ID;
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-            
+
             $sql = "SELECT * FROM Users WHERE User_ID='$User_ID'";
-           $stmt = $conn->prepare($sql);
+            $stmt = $conn->prepare($sql);
 //$stmt->bind_param("s", $editID);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
 
- echo  $row['Book_title'] ;
-                echo $row['User_ID'] ;
-                echo $row['User_Name'] ;
-                echo $row['User_Email'] ;
-
-                       
+           
             ?>
 
             <form id='test' action = "Edit.php" method = "post">
-                
+
+               User_ID:
+            <?php
+            $User_ID = $_GET["User_ID"];
+            echo $User_ID;
+            ?>
+
+                <input type  ="hidden" name="User_ID" value="<?php echo $_GET['User_ID'] ?>"> <br/><br/>
+               
                 Book Title: 
                 <input type  ="text" name="Book_title" value="<?php echo $row['Book_title'] ?>"><br/><br/>
-                User_ID: 
-                <input name= "User_ID"  type="text" value="<?php echo $row['User_ID'] ?>"><span id="wronglname" class="error">*This is a required field</span> <br/><br/>
+
                 User_Name:
                 <input name= "User_Name"  type="text" size="12" value="<?php echo $row['User_Name'] ?>"><span id="wrongid" class="error">*This is a required field</span> <br/><br/>
                 Email :
